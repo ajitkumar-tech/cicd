@@ -1,0 +1,17 @@
+---
+- name: Deploy application to EKS
+  hosts: 3.109.201.194
+  become: yes
+
+  tasks:
+
+  - name: Configure kubectl for EKS cluster
+    command: aws eks --region ap-south-1 update-kubeconfig --name my-eks-cluster
+
+  - name: Copy Kubernetes manifest file
+    copy:
+      src: deployment.yml
+      dest: /home/ec2-user/deployment.yaml
+
+  - name: Deploy application to EKS
+    command: kubectl apply -f /home/ec2-user/deployment.yaml
