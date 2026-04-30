@@ -10,7 +10,7 @@
 
   - name: Copy Kubernetes manifest file
     copy:
-      src: deployment.yml
+      src: deployment.yaml
       dest: /home/ec2-user/deployment.yaml
 
   - name: Deploy application to EKS
