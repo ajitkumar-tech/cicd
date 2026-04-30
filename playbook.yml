@@ -1,6 +1,6 @@
 ---
 - name: Deploy application to EKS
-  hosts: 3.109.201.194
+  hosts: 65.0.61.220
   become: yes
 
   tasks:
